@@ -1,0 +1,7 @@
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Models.deps.json
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Models.dll
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Models.pdb
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Models.AssemblyInfoInputs.cache
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Models.AssemblyInfo.cs
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Models.dll
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Models.pdb

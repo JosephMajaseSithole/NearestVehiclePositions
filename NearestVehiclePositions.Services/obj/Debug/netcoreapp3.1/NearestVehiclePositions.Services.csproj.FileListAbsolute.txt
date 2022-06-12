@@ -1,0 +1,13 @@
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Services.deps.json
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Services.dll
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Services.pdb
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Core.dll
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Helpers.dll
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Helpers.pdb
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\bin\Debug\netcoreapp3.1\NearestVehiclePositions.Core.pdb
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Services.csprojAssemblyReference.cache
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Services.AssemblyInfoInputs.cache
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Services.AssemblyInfo.cs
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Services.csproj.CopyComplete
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Services.dll
+C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Services\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Services.pdb
