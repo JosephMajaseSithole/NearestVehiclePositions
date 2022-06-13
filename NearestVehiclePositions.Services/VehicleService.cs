@@ -4,9 +4,9 @@ using NearestVehiclePositions.Core.Models;
 using NearestVehiclePositions.Helpers;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace NearestVehiclePositions.Services
 {
@@ -17,7 +17,7 @@ namespace NearestVehiclePositions.Services
             using (var binaryReader = new BinaryReader(File.Open(AppConfig.GetDataFilePath(), FileMode.Open)))
             {
                 var length = binaryReader.BaseStream.Length;
-                var vehicle = default(Vehicle);
+                Vehicle vehicle = default;
                 while (binaryReader.BaseStream.Position < length)
                 {
                     vehicle.PositionId = binaryReader.ReadInt32();
@@ -36,15 +36,15 @@ namespace NearestVehiclePositions.Services
             {
                 if (positions.Any() && vehicles.Any())
                 {
-                    foreach (var position in positions)
+                    Parallel.ForEach(positions, position =>
                     {
-                        var nearestVehicle = vehicles.AsParallel()
-                                      .Select(vehicle => vehicle)
-                                      .OrderBy(vehicle => GeoCalculator.GetDistance(position.Latitude, position.Longitude, vehicle.Latitude, vehicle.Longitude))
-                                      .First();
+                        var nearestVehicle = vehicles
+                               .OrderBy(vehicle => GeoCalculator.GetDistance(position.Latitude, position.Longitude, vehicle.Latitude, vehicle.Longitude))
+                               .Select(v => v)
+                               .First();
 
                         Console.WriteLine($"Vehicle Registration: {nearestVehicle.VehicleRegistration} is closest to Position: {position.PositionId}");
-                    }
+                    });
                 }
             }
             catch (Exception ex)

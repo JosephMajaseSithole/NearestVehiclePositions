@@ -5,7 +5,7 @@ namespace NearestVehiclePositions.Helpers
 {
     public static class BinaryReaderExtensions
     {
-        public static string ReadNullTerminatedASCIIstring(this BinaryReader binaryReader)
+        public static StringBuilder ReadNullTerminatedASCIIstring(this BinaryReader binaryReader)
         {
             var nullTerminatedString = new StringBuilder();
             while (true)
@@ -15,7 +15,7 @@ namespace NearestVehiclePositions.Helpers
                     break;
                 nullTerminatedString.Append((char)_byte);
             }
-            return nullTerminatedString.ToString();
+            return nullTerminatedString;
         }
     }
 }
