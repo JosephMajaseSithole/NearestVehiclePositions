@@ -3,6 +3,7 @@ using NearestVehiclePositions.Core.Interfaces;
 using NearestVehiclePositions.Services;
 using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace NearestVehiclePositions
 {
@@ -23,7 +24,7 @@ namespace NearestVehiclePositions
 
                 var totalExecutionTime = Stopwatch.StartNew();
                 var dataFileReadExecutionTime = Stopwatch.StartNew();
-                var vehicles = vehicleService.GetVehicles();
+                var vehicles = vehicleService.GetVehicles().ToList();
                 dataFileReadExecutionTime.Stop();
 
                 var closestPositionCalculationExecutionTime = Stopwatch.StartNew();

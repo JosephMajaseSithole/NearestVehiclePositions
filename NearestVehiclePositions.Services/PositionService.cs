@@ -8,6 +8,7 @@ namespace NearestVehiclePositions.Services
     {
         public List<Position> GetPositions()
         {
+            //This can also be read from another source depending on requirements.
             return new List<Position>()
             {
                 new Position()

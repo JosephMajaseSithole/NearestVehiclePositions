@@ -5,7 +5,7 @@ namespace NearestVehiclePositions.Core.Interfaces
 {
     public interface IVehicleService
     {
-        public List<Vehicle> GetVehicles();
+        public IEnumerable<Vehicle> GetVehicles();
         public void GetVehicleNearestToPosition(List<Position> positions, List<Vehicle> vehicles);
     }
 }
