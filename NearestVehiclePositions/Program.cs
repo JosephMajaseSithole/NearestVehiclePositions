@@ -3,7 +3,6 @@ using NearestVehiclePositions.Core.Interfaces;
 using NearestVehiclePositions.Services;
 using System;
 using System.Diagnostics;
-using System.Linq;
 
 namespace NearestVehiclePositions
 {

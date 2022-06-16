@@ -5,6 +5,7 @@ using NearestVehiclePositions.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace NearestVehiclePositions.Services
 {
@@ -15,18 +16,16 @@ namespace NearestVehiclePositions.Services
             using (var binaryReader = new BinaryReader(File.Open(AppConfig.GetDataFilePath(), FileMode.Open)))
             {
                 const int totalVehicles = 2000000;
-                var vehicles = new List<Vehicle>(totalVehicles);
-                var vehicle = default(Vehicle);
+                var vehicles = new Vehicle[totalVehicles];
                 for (var x = 0; x < totalVehicles; ++x)
                 {
-                    vehicle.PositionId = binaryReader.ReadInt32();
-                    vehicle.VehicleRegistration = binaryReader.ReadNullTerminatedASCIIstring();
-                    vehicle.Latitude = binaryReader.ReadSingle();
-                    vehicle.Longitude = binaryReader.ReadSingle();
-                    vehicle.RecordedTimeUTC = binaryReader.ReadUInt64();
-                    vehicles.Add(vehicle);
+                    vehicles[x].PositionId = binaryReader.ReadInt32();
+                    vehicles[x].VehicleRegistration = binaryReader.ReadNullTerminatedASCIIstring();
+                    vehicles[x].Latitude = binaryReader.ReadSingle();
+                    vehicles[x].Longitude = binaryReader.ReadSingle();
+                    vehicles[x].RecordedTimeUTC = binaryReader.ReadUInt64();
                 }
-                return vehicles;
+                return vehicles.ToList();
             }
         }
 
