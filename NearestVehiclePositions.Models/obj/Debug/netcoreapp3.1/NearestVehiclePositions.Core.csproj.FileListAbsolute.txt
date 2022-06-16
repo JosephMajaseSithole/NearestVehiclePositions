@@ -5,4 +5,3 @@ C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.
 C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Core.AssemblyInfo.cs
 C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Core.dll
 C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Core.pdb
-C:\Code\NearestVehiclePositions\NearestVehiclePositions\NearestVehiclePositions.Models\obj\Debug\netcoreapp3.1\NearestVehiclePositions.Core.csprojAssemblyReference.cache

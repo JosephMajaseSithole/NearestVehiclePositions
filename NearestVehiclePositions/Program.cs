@@ -24,11 +24,11 @@ namespace NearestVehiclePositions
 
                 var totalExecutionTime = Stopwatch.StartNew();
                 var dataFileReadExecutionTime = Stopwatch.StartNew();
-                var vehicles = vehicleService.GetVehicles().ToList();
+                var vehicles = vehicleService.GetVehicles();
                 dataFileReadExecutionTime.Stop();
 
-                var closestPositionCalculationExecutionTime = Stopwatch.StartNew();
                 var positions = positionService.GetPositions();
+                var closestPositionCalculationExecutionTime = Stopwatch.StartNew();
                 vehicleService.GetVehicleNearestToPosition(positions, vehicles);
                 closestPositionCalculationExecutionTime.Stop();
                 totalExecutionTime.Stop();

@@ -16,11 +16,11 @@
           "NearestVehiclePositions.dll": {}
         }
       },
-      "Geolocation/1.2.1": {
+      "GeoCoordinate.NetCore/1.0.0.1": {
         "runtime": {
-          "lib/netstandard2.0/Geolocation.dll": {
-            "assemblyVersion": "1.2.0.0",
-            "fileVersion": "1.2.0.0"
+          "lib/netstandard1.6/GeoCoordinate.NetCore.dll": {
+            "assemblyVersion": "1.0.0.1",
+            "fileVersion": "1.0.0.1"
           }
         }
       },
@@ -187,7 +187,7 @@
       },
       "NearestVehiclePositions.Services/1.0.0": {
         "dependencies": {
-          "Geolocation": "1.2.1",
+          "GeoCoordinate.NetCore": "1.0.0.1",
           "NearestVehiclePositions.Core": "1.0.0",
           "NearestVehiclePositions.Helpers": "1.0.0"
         },
@@ -203,12 +203,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Geolocation/1.2.1": {
+    "GeoCoordinate.NetCore/1.0.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qvdjGKWydk4hKmyGvIExkpNhJ0qoAk88f+wTsuQ6Bdb6Zl2MJccmQRKF2DLtAuuGSkeF9N99BbO2eKk4F932Mw==",
-      "path": "geolocation/1.2.1",
-      "hashPath": "geolocation.1.2.1.nupkg.sha512"
+      "sha512": "sha512-VrR5MLkh0u2qka79JcQ/GUrgHwGidayCA7nKy2430qYX/JHdrHLgwp1MuBTSsygWs0s2V6GQ0Hp8HUMatHiWFw==",
+      "path": "geocoordinate.netcore/1.0.0.1",
+      "hashPath": "geocoordinate.netcore.1.0.0.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/6.0.1": {
       "type": "package",

@@ -2,13 +2,13 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Geolocation/1.2.1": {
+      "GeoCoordinate.NetCore/1.0.0.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Geolocation.dll": {}
+          "lib/netstandard1.6/GeoCoordinate.NetCore.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Geolocation.dll": {}
+          "lib/netstandard1.6/GeoCoordinate.NetCore.dll": {}
         }
       },
       "Microsoft.Extensions.Configuration/6.0.1": {
@@ -197,20 +197,17 @@
     }
   },
   "libraries": {
-    "Geolocation/1.2.1": {
-      "sha512": "qvdjGKWydk4hKmyGvIExkpNhJ0qoAk88f+wTsuQ6Bdb6Zl2MJccmQRKF2DLtAuuGSkeF9N99BbO2eKk4F932Mw==",
+    "GeoCoordinate.NetCore/1.0.0.1": {
+      "sha512": "VrR5MLkh0u2qka79JcQ/GUrgHwGidayCA7nKy2430qYX/JHdrHLgwp1MuBTSsygWs0s2V6GQ0Hp8HUMatHiWFw==",
       "type": "package",
-      "path": "geolocation/1.2.1",
+      "path": "geocoordinate.netcore/1.0.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE",
-        "geolocation.1.2.1.nupkg.sha512",
-        "geolocation.nuspec",
-        "lib/net451/Geolocation.dll",
-        "lib/net451/Geolocation.pdb",
-        "lib/netstandard2.0/Geolocation.dll",
-        "lib/netstandard2.0/Geolocation.pdb"
+        "geocoordinate.netcore.1.0.0.1.nupkg.sha512",
+        "geocoordinate.netcore.nuspec",
+        "lib/netstandard1.6/GeoCoordinate.NetCore.deps.json",
+        "lib/netstandard1.6/GeoCoordinate.NetCore.dll"
       ]
     },
     "Microsoft.Extensions.Configuration/6.0.1": {
@@ -504,7 +501,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Geolocation >= 1.2.1",
+      "GeoCoordinate.NetCore >= 1.0.0.1",
       "NearestVehiclePositions.Core >= 1.0.0",
       "NearestVehiclePositions.Helpers >= 1.0.0"
     ]
@@ -558,9 +555,9 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
-          "Geolocation": {
+          "GeoCoordinate.NetCore": {
             "target": "Package",
-            "version": "[1.2.1, )"
+            "version": "[1.0.0.1, )"
           }
         },
         "imports": [

@@ -1,32 +1,32 @@
-﻿using Geolocation;
+﻿using GeoCoordinatePortable;
 using NearestVehiclePositions.Core.Interfaces;
 using NearestVehiclePositions.Core.Models;
 using NearestVehiclePositions.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace NearestVehiclePositions.Services
 {
     public class VehicleService : IVehicleService
     {
-        public IEnumerable<Vehicle> GetVehicles()
+        public List<Vehicle> GetVehicles()
         {
             using (var binaryReader = new BinaryReader(File.Open(AppConfig.GetDataFilePath(), FileMode.Open)))
             {
-                var length = binaryReader.BaseStream.Length;
-                Vehicle vehicle = default;
-                while (binaryReader.BaseStream.Position < length)
+                const int totalVehicles = 2000000;
+                var vehicles = new List<Vehicle>(totalVehicles);
+                var vehicle = default(Vehicle);
+                for (var x = 0; x < totalVehicles; ++x)
                 {
                     vehicle.PositionId = binaryReader.ReadInt32();
                     vehicle.VehicleRegistration = binaryReader.ReadNullTerminatedASCIIstring();
                     vehicle.Latitude = binaryReader.ReadSingle();
                     vehicle.Longitude = binaryReader.ReadSingle();
                     vehicle.RecordedTimeUTC = binaryReader.ReadUInt64();
-                    yield return vehicle;
+                    vehicles.Add(vehicle);
                 }
+                return vehicles;
             }
         }
 
@@ -34,17 +34,22 @@ namespace NearestVehiclePositions.Services
         {
             try
             {
-                if (positions.Any() && vehicles.Any())
+                for (var positionIndex = 0; positionIndex < positions.Count; ++positionIndex)
                 {
-                    Parallel.ForEach(positions, position =>
+                    var vehiclePositionDistance = default(VehiclePositionDistance);
+                    vehiclePositionDistance.Distance = double.MaxValue;
+                    var positionCoordinate = new GeoCoordinate(positions[positionIndex].Latitude, positions[positionIndex].Longitude);
+                    for (var vehicleIndex = 0; vehicleIndex < vehicles.Count; ++vehicleIndex)
                     {
-                        var nearestVehicle = vehicles
-                               .OrderBy(vehicle => GeoCalculator.GetDistance(position.Latitude, position.Longitude, vehicle.Latitude, vehicle.Longitude))
-                               .Select(v => v)
-                               .First();
-
-                        Console.WriteLine($"Vehicle Registration: {nearestVehicle.VehicleRegistration} is closest to Position: {position.PositionId}");
-                    });
+                        var vehicleCoordinate = new GeoCoordinate(vehicles[vehicleIndex].Latitude, vehicles[vehicleIndex].Longitude);
+                        var vehicleDistanceFromPosition = vehicleCoordinate.GetDistanceTo(positionCoordinate);
+                        if (vehiclePositionDistance.Distance > vehicleDistanceFromPosition)
+                        {
+                            vehiclePositionDistance.Distance = vehicleDistanceFromPosition;
+                            vehiclePositionDistance.VehicleRegistration = vehicles[vehicleIndex].VehicleRegistration;
+                        }
+                    }
+                    Console.WriteLine($"Vehicle Registration: {vehiclePositionDistance.VehicleRegistration} is closest to Position: {positions[positionIndex].PositionId}");
                 }
             }
             catch (Exception ex)
