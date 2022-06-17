@@ -17,13 +17,16 @@ namespace NearestVehiclePositions.Services
             {
                 const int totalVehicles = 2000000;
                 var vehicles = new Vehicle[totalVehicles];
-                for (var x = 0; x < totalVehicles; ++x)
+                for (int x = 0; x < 1000000; x += 2)
                 {
-                    vehicles[x].PositionId = binaryReader.ReadInt32();
-                    vehicles[x].VehicleRegistration = binaryReader.ReadNullTerminatedASCIIstring();
-                    vehicles[x].Latitude = binaryReader.ReadSingle();
-                    vehicles[x].Longitude = binaryReader.ReadSingle();
-                    vehicles[x].RecordedTimeUTC = binaryReader.ReadUInt64();
+                    for (int i = 0; i < 2; ++i)
+                    {
+                        vehicles[x + i].PositionId = binaryReader.ReadInt32();
+                        vehicles[x + i].VehicleRegistration = binaryReader.ReadNullTerminatedASCIIstring();
+                        vehicles[x + i].Latitude = binaryReader.ReadSingle();
+                        vehicles[x + i].Longitude = binaryReader.ReadSingle();
+                        vehicles[x + i].RecordedTimeUTC = binaryReader.ReadUInt64();
+                    }
                 }
                 return vehicles.ToList();
             }
@@ -33,19 +36,25 @@ namespace NearestVehiclePositions.Services
         {
             try
             {
-                for (var positionIndex = 0; positionIndex < positions.Count; ++positionIndex)
+                var vehicleIterations = vehicles.Count / 2;
+                var totalPositions = positions.Count;
+                for (var positionIndex = 0; positionIndex < totalPositions; ++positionIndex)
                 {
                     var vehiclePositionDistance = default(VehiclePositionDistance);
-                    vehiclePositionDistance.Distance = double.MaxValue;
+                    vehiclePositionDistance.DistanceFromPosition = double.MaxValue;
                     var positionCoordinate = new GeoCoordinate(positions[positionIndex].Latitude, positions[positionIndex].Longitude);
-                    for (var vehicleIndex = 0; vehicleIndex < vehicles.Count; ++vehicleIndex)
+                    for (var vehicleIndex = 0; vehicleIndex < vehicleIterations; vehicleIndex += 2)
                     {
-                        var vehicleCoordinate = new GeoCoordinate(vehicles[vehicleIndex].Latitude, vehicles[vehicleIndex].Longitude);
-                        var vehicleDistanceFromPosition = vehicleCoordinate.GetDistanceTo(positionCoordinate);
-                        if (vehiclePositionDistance.Distance > vehicleDistanceFromPosition)
+                        for (int i = 0; i < 2; i++)
                         {
-                            vehiclePositionDistance.Distance = vehicleDistanceFromPosition;
-                            vehiclePositionDistance.VehicleRegistration = vehicles[vehicleIndex].VehicleRegistration;
+                            var vehicleAt = vehicleIndex + i;
+                            var vehicleCoordinate = new GeoCoordinate(vehicles[vehicleAt].Latitude, vehicles[vehicleAt].Longitude);
+                            var vehicleDistanceFromPosition = vehicleCoordinate.GetDistanceTo(positionCoordinate);
+                            if (vehiclePositionDistance.DistanceFromPosition > vehicleDistanceFromPosition)
+                            {
+                                vehiclePositionDistance.DistanceFromPosition = vehicleDistanceFromPosition;
+                                vehiclePositionDistance.VehicleRegistration = vehicles[vehicleAt].VehicleRegistration;
+                            }
                         }
                     }
                     Console.WriteLine($"Vehicle Registration: {vehiclePositionDistance.VehicleRegistration} is closest to Position: {positions[positionIndex].PositionId}");
