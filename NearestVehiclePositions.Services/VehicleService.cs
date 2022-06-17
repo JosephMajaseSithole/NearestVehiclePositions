@@ -16,8 +16,9 @@ namespace NearestVehiclePositions.Services
             using (var binaryReader = new BinaryReader(File.Open(AppConfig.GetDataFilePath(), FileMode.Open)))
             {
                 const int totalVehicles = 2000000;
+                var vehicleIterations = totalVehicles / 2;
                 var vehicles = new Vehicle[totalVehicles];
-                for (int x = 0; x < 1000000; x += 2)
+                for (int x = 0; x < vehicleIterations; x += 2)
                 {
                     for (int i = 0; i < 2; ++i)
                     {
